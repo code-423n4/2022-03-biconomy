@@ -3,26 +3,27 @@
 - \$71,250 USDC main award pot
 - \$3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-biconomy-contest/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-biconomy-hyphen-20-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts March 10, 2022 00:00 UTC
 - Ends March 16, 2022 23:59 UTC
 
 
 # Protocol Overview
-Hyphen is cross chain token trasnfer bridge that works by maintaing liquidity pools on each supported chains. In order to do a cross chain transfer, user deposit his funds in liquidity pool on source chain and then off chain hyphen nodes (executors) listen to this deposit event and trigger a transfer transaction on destination chain where funds are transfered from the pool to user receiving address after deducting a transfer fee. This transfer is dynamic in nature and is decided by a bonding curve formulae that depends on total liquidity provided by the LPs and the current available liquidity in the pool.
-If user is trying to take funds out from a pool where available liquidtiy is less than supplied liquidity then transfer fee will be high and vice versa. 
-When available liquidtiy = supplied liquidity, then transfer fee is equal to equilibrium fee configured in the pool (usually its 0.1%)
+Hyphen is cross chain token transfer bridge that works by maintaining liquidity pools on each supported chain. In order to do a cross chain transfer, user deposits his funds in liquidity pool on source chain and then off chain hyphen nodes (executors) listen to this deposit event and trigger a transfer transaction on destination chain where funds are transfered from the pool to user receiving address after deducting a transfer fee. This transfer is dynamic in nature and is decided by a bonding curve formulae that depends on total liquidity provided by the LPs and the current available liquidity in the pool.
 
-One interesting thing to observe here is that these pools are self rebalancing in the way that once pools gets imbalanced by one sided transfer, protocol starts creating incentives for the users to balance our the pool by doing the cross chain transfer in opposite direction of the demand. This incentive comes from the high fee charged from the user when they are trying to take funds from a pool where available liquidtiy is less than supplied liquidity.
+If user is trying to take funds out from a pool where available liquidity is less than supplied liquidity then transfer fee will be high and vice versa. 
+When available liquidity = supplied liquidity, then transfer fee is equal to equilibrium fee configured in the pool (usually its 0.1%)
+
+One interesting thing to observe here is that these pools are self rebalancing in the way that once pools gets imbalanced by one sided transfer, protocol starts creating incentives for the users to balance out the pool by doing the cross chain transfer in opposite direction of the demand. This incentive comes from the high fee charged from the user when they are trying to take funds from a pool where available liquidity is less than supplied liquidity.
 
 More detailed information can be found here <a href="https://biconomy.notion.site/Self-Balancing-Cross-Chain-Liquidity-Pools-c19a725673964d5aaec6b16e5c7ce9a5" target="_blank">Self-Balancing-Cross-Chain-Liquidity-Pools</a>
 
-You can checkout the Hyphe UI here on test networks <a href="https://hyphen-staging.biconomy.io" target="_blank">https://hyphen-staging.biconomy.io</a>
+You can check out the Hyphe UI here on test networks <a href="https://hyphen-staging.biconomy.io" target="_blank">https://hyphen-staging.biconomy.io</a>
 | Glossary| |
 |-------------------------------|------------------------------------------------------|
 | Liquidity Pool | Liquidity pool contract where LPs will provider liquidity. Single contract deployed on each supported chain, contains multiple tokens liquidity including native token |
-| Executors | Off chain accounts that is run by Biconomy who have access to Liqudity present in Liqudity Pools on each chain |
+| Executors | Off chain accounts that is run by Biconomy who have access to Liquidity present in Liquidity Pools on each chain |
 | Deposit Transaction | Transaction done by the user on source chain who want to move his funds from source chain to destination chain |
 | Transfer Transaction | Transaction done by the Executors on destination chain where user gets his funds from the Liquidity Pool after deducting transfer fee |
 | Cross Chain Transfer | Deposit Transaction + Transfer Transaction makes one cross chain transfer |
@@ -35,7 +36,7 @@ You can checkout the Hyphe UI here on test networks <a href="https://hyphen-stag
 | Incentive Pool | Mapping stored in Liquidity Pool that contains incentive amount that is given to user deposit when pool is in deficit state |
 | Equilibrium Fee | Percentage fee deducted from user transfer amount that is distributed to LPs when funds are given from Liquidity Pool |
 | Dynamic Transfer Fee | Equilibrium Fee + Incentive Pool Fee, This is dynamic number calculated based on SL and AL |
-| Gas Fee | Fee deducted from user transfer amount in the token being trasnferred that is equal to gas being used in transfer transaction |
+| Gas Fee | Fee deducted from user transfer amount in the token being transferred that is equal to gas being used in transfer transaction |
 | Total Transfer Fee | Dynamic Transfer Fee + Gas Fee |
 
 ## Protocol overview
@@ -44,7 +45,7 @@ You can checkout the Hyphe UI here on test networks <a href="https://hyphen-stag
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest.
 
 #### ExecutorManager.sol (41 sloc each)
-Contract containing all Executor addresses that are authorised to call sendFundsToUser method of LiquidityPool.sol. Only owner of this contract can add or remove executor addresses. onlyExecutor modifier is used whereever we want to restrict the method access to only Executors.
+Contract containing all Executor addresses that are authorised to call sendFundsToUser method of LiquidityPool.sol. Only owner of this contract can add or remove executor addresses. onlyExecutor modifier is used wherever we want to restrict the method access to only Executors.
 
 - External contracts called: None
 - Libraries used: None
