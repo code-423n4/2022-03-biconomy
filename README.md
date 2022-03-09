@@ -194,23 +194,31 @@ User interaction start in either the deposit or withdraw handler. A user is trea
 A full set of unit tests are provided in the repo. To run these do the following:
 ## Prepare local enviroment
 
-1. install `nodejs`, refer to [nodejs](https://nodejs.org/en/)
-2. install `yarn`, refer to [yarn](https://classic.yarnpkg.com/en/)
+1. install `nodejs`, refer to [nodejs](https://nodejs.org/en/).
+2. install `yarn`, refer to [yarn](https://classic.yarnpkg.com/en/).
+3. run `yarn` to install all dependencies.
+4. run `yarn test` to run the tests.
 
 
 ## Testnet deployment
 
-[ropsten ETH faucet](https://faucet.ropsten.be/)
-
- The following mocked contracts are used by the protocol on Ropsten:
+ The following token contracts are used by the protocol on Goerli:
 | Mocks                         | Address |
 |-------------------------------|------------------------------------------------------|
-| USDC	                        | [USDC, ''](https://ropsten.etherscan.io/address/), |
-| USDT	                        | [USDT, ''](https://ropsten.etherscan.io/address/), |
+| USDT	                        | [USDT, '0x64ef393b6846114bad71e2cb2ccc3e10736b5716'](https://goerli.etherscan.io/address/0x64ef393b6846114bad71e2cb2ccc3e10736b5716), |
+| USDC	                        | [USDC, '0xb5B640E6414b6DeF4FC9B3C1EeF373925effeCcF'](https://goerli.etherscan.io/address/0xb5B640E6414b6DeF4FC9B3C1EeF373925effeCcF), |
+| ETH	                        | ETH, '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', |
 
 
-The following external contracts are being used
-| External                         | Address |
+ The following token contracts are used by the protocol on Mumbai:
+| Mocks                         | Address |
 |-------------------------------|------------------------------------------------------|
-| xxx| xxx |
+| USDT	                        | [USDT, '0xeaBc4b91d9375796AA4F69cC764A4aB509080A58'](https://mumbai.polygonscan.com/address/0xeaBc4b91d9375796AA4F69cC764A4aB509080A58), |
+| USDC	                        | [USDC, '0xdA5289fCAAF71d52a80A254da614a192b693e977'](https:///mumbai.polygonscan.com/address/0xdA5289fCAAF71d52a80A254da614a192b693e977), |
+| WETH	                        | [WETH, '0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa'](https:///mumbai.polygonscan.com/address/0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa), |
+
+The following token contracts are used by the protocol on Fuji:
+| Mocks                         | Address |
+|-------------------------------|------------------------------------------------------|
+| USDT	                        | [USDT, '0xB4E0F6FEF81BdFea0856bB846789985c9CFf7e85'](https://testnet.snowtrace.io//address/0xB4E0F6FEF81BdFea0856bB846789985c9CFf7e85), |
 
