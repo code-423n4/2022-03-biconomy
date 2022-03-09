@@ -203,7 +203,7 @@ A full set of unit tests are provided in the repo. To run these do the following
 ## Testnet deployment
 
  The following token contracts are used by the protocol on Goerli:
-| Mocks                         | Address |
+| Token                         | Address |
 |-------------------------------|------------------------------------------------------|
 | USDT	                        | [USDT, '0x64ef393b6846114bad71e2cb2ccc3e10736b5716'](https://goerli.etherscan.io/address/0x64ef393b6846114bad71e2cb2ccc3e10736b5716), |
 | USDC	                        | [USDC, '0xb5B640E6414b6DeF4FC9B3C1EeF373925effeCcF'](https://goerli.etherscan.io/address/0xb5B640E6414b6DeF4FC9B3C1EeF373925effeCcF), |
@@ -211,14 +211,46 @@ A full set of unit tests are provided in the repo. To run these do the following
 
 
  The following token contracts are used by the protocol on Mumbai:
-| Mocks                         | Address |
+| Token                         | Address |
 |-------------------------------|------------------------------------------------------|
 | USDT	                        | [USDT, '0xeaBc4b91d9375796AA4F69cC764A4aB509080A58'](https://mumbai.polygonscan.com/address/0xeaBc4b91d9375796AA4F69cC764A4aB509080A58), |
 | USDC	                        | [USDC, '0xdA5289fCAAF71d52a80A254da614a192b693e977'](https:///mumbai.polygonscan.com/address/0xdA5289fCAAF71d52a80A254da614a192b693e977), |
 | WETH	                        | [WETH, '0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa'](https:///mumbai.polygonscan.com/address/0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa), |
 
 The following token contracts are used by the protocol on Fuji:
-| Mocks                         | Address |
+| Token                         | Address |
 |-------------------------------|------------------------------------------------------|
 | USDT	                        | [USDT, '0xB4E0F6FEF81BdFea0856bB846789985c9CFf7e85'](https://testnet.snowtrace.io//address/0xB4E0F6FEF81BdFea0856bB846789985c9CFf7e85), |
 
+Following are the contracts deployed on Goerli:
+| Contract                         | Address |
+|-------------------------------|------------------------------------------------------|
+ executorManager                                | [executorManager, '0xE248222D1c1F9549D0E5B3CA4fdb903ed52b8d33'](https://goerli.etherscan.io/address/0xE248222D1c1F9549D0E5B3CA4fdb903ed52b8d33), |
+ tokenManager                           | [tokenManager, '0x49B5e3Dc6E9f11031E355c272b0Ed11afB90177e'](https://goerli.etherscan.io/address/0x49B5e3Dc6E9f11031E355c272b0Ed11afB90177e), |
+ lpToken                                | [lpToken, '0x4644FAB4089f1241899BE7007E9399B06A399972'](https://goerli.etherscan.io/address/0x4644FAB4089f1241899BE7007E9399B06A399972), |
+ liquidityProviders                             | [liquidityProviders, '0x658D3F3076e971a74b2712Cf6e9B951BdB2f3fe8'](https://goerli.etherscan.io/address/0x658D3F3076e971a74b2712Cf6e9B951BdB2f3fe8), |
+ liquidityPool                          | [liquidityPool, '0x8033Bd14c4C114C14C910fe05Ff13DB4C481a85D'](https://goerli.etherscan.io/address/0x8033Bd14c4C114C14C910fe05Ff13DB4C481a85D), |
+ whitelistPeriodManager                         | [whitelistPeriodManager, '0x62A0521d3F3B75b70fA39926A0c63CBf819870a6'](https://goerli.etherscan.io/address/0x62A0521d3F3B75b70fA39926A0c63CBf819870a6), |
+ liquidityFarming                               | [liquidityFarming, '0x8139F951F6Dc25A77Aa5F41dA661CEef35BF016A'](https://goerli.etherscan.io/address/0x8139F951F6Dc25A77Aa5F41dA661CEef35BF016A), |
+ 
+ Following are the contracts deployed on Mumbai:
+| Contract                         | Address |
+|-------------------------------|------------------------------------------------------|
+ executorManager                                | [executorManager, '0x015e3cc89a2F3871feB8faB7520E07347e8297f9'](https://mumbai.polygonscan.com/address/0x015e3cc89a2F3871feB8faB7520E07347e8297f9), |
+ tokenManager                           | [tokenManager, '0xc23F4c4886f1D48d980dd33a712c7B71c3d31032'](https://mumbai.polygonscan.com/address/0xc23F4c4886f1D48d980dd33a712c7B71c3d31032), |
+ lpToken                                | [lpToken, '0x48E2577e5f781CBb3374912a31b1aa39c9E11d39'](https://mumbai.polygonscan.com/address/0x48E2577e5f781CBb3374912a31b1aa39c9E11d39), |
+ liquidityProviders                             | [liquidityProviders, '0xFD210117F5b9d98Eb710295E30FFF77dF2d80002'](https://mumbai.polygonscan.com/address/0xFD210117F5b9d98Eb710295E30FFF77dF2d80002), |
+ liquidityPool                          | [liquidityPool, '0xDe4e4CDa407Eee8d9E76261a1F2d229A572743dE'](https://mumbai.polygonscan.com/address/0xDe4e4CDa407Eee8d9E76261a1F2d229A572743dE), |
+ whitelistPeriodManager                         | [whitelistPeriodManager, '0xcA7284D5B079a7d947d47d6169389c3B37DD80b1'](https://mumbai.polygonscan.com/address/0xcA7284D5B079a7d947d47d6169389c3B37DD80b1), |
+ liquidityFarming                               | [liquidityFarming, '0xf97859fb869329933b40F36A86E7e44f334Ed16a'](https://mumbai.polygonscan.com/address/0xf97859fb869329933b40F36A86E7e44f334Ed16a), |
+ 
+ Following are the contracts deployed on Fuji:
+| Contract                         | Address |
+|-------------------------------|------------------------------------------------------|
+ executorManager                                | [executorManager, '0xcF51d570DE06D82664E22079E9ddA9C9f52B2373'](https://testnet.snowtrace.io//address/0xcF51d570DE06D82664E22079E9ddA9C9f52B2373), |
+ tokenManager                           | [tokenManager, '0xf972dAf3273B84Ab862a73a75dca1204E4a357cf'](https://testnet.snowtrace.io//address/0xf972dAf3273B84Ab862a73a75dca1204E4a357cf), |
+ lpToken                                | [lpToken, '0x3C30506d3cBfa117d007a8c9813Ff93b3Bffa357'](https://testnet.snowtrace.io//address/0x3C30506d3cBfa117d007a8c9813Ff93b3Bffa357), |
+ liquidityProviders                             | [liquidityProviders, '0x17D42A784928a8168a871fA627bb1e4023D25C2A'](https://testnet.snowtrace.io//address/0x17D42A784928a8168a871fA627bb1e4023D25C2A), |
+ liquidityPool                          | [liquidityPool, '0xB726675394b2dDeE2C897ad31a62C7545Ad7C68D'](https://testnet.snowtrace.io//address/0xB726675394b2dDeE2C897ad31a62C7545Ad7C68D), |
+ whitelistPeriodManager                         | [whitelistPeriodManager, '0x33d06Fe3d23E18B43c69C2a5C871e0AC7E706055'](https://testnet.snowtrace.io//address/0x33d06Fe3d23E18B43c69C2a5C871e0AC7E706055), |
+ liquidityFarming                               | [liquidityFarming, '0xBFAE64B3f3BBC05D466Adb5D5FAd8f520E61FAF8'](https://testnet.snowtrace.io//address/0xBFAE64B3f3BBC05D466Adb5D5FAd8f520E61FAF8), |
