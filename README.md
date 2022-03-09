@@ -1,46 +1,62 @@
-# Advanced Sample Hardhat Project
+# ✨ So you want to sponsor a contest
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+This `README.md` contains a set of checklists for our contest collaboration.
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+Your contest will use two repos:
 
-Try running some of the following tasks:
+- **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
+- **a _findings_ repo**, where issues are submitted.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
+Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest is over and your team has mitigated the identified issues.
 
-# Etherscan verification
+Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
+---
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+# Contest setup
 
-```shell
-hardhat run --network ropsten scripts/sample-script.ts
-```
+## ⭐️ Sponsor: Provide contest details
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
+- [ ] Name of each contract and:
+  - [ ] source lines of code (excluding blank lines and comments) in each
+  - [ ] external contracts called in each
+  - [ ] libraries used in each
+- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
+- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
+- [ ] Describe anything else that adds any special logic that makes your approach unique
+- [ ] Identify any areas of specific concern in reviewing the code
+- [ ] Add all of the code to this repo that you want reviewed
+- [ ] Create a PR to this repo with the above changes.
 
-# Performance optimizations
+---
 
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
+# Contest prep
+
+## ⭐️ Sponsor: Contest prep
+
+- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
+- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
+- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 8 hours prior to contest start time.**
+- [ ] Ensure that you have access to the _findings_ repo where issues will be submitted.
+- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
+- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
+- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
+- [ ] Delete this checklist and all text above the line below when you're ready.
+
+---
+
+# Biconomy Hyphen 2.0 contest details
+
+- \$71,250 USDC main award pot
+- \$3,750 USDC gas optimization award pot
+- Join [C4 Discord](https://discord.gg/code4rena) to register
+- Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-biconomy-contest/submit)
+- [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
+- Starts March 10, 2022 00:00 UTC
+- Ends March 16, 2022 23:59 UTC
+
+This repo will be made public before the start of the contest. (C4 delete this line when made public)
+Test
+[ ⭐️ SPONSORS ADD INFO HERE ]
