@@ -86,14 +86,66 @@ Test
 ## Smart Contracts
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest.
 
-#### ExecutorManager.sol ( sloc each)
+#### ExecutorManager.sol (41 sloc each)
+Contract containing all Executor addresses that are authorised to call sendFundsToUser method of LiquidityPool.sol. Only owner of this contract can add or remove executor addresses. onlyExecutor modifier is used whereever we want to restrict the method access to only Executors.
 
-#### TokenManager.sol ( sloc each)
+- External contracts called: None
+- Libraries used: None
+ 
+#### TokenManager.sol (111 sloc each)
+Contract containing supported tokens and their configurations mentioned below. Only Owner of this contract can add/remove tokens and modify their configurations.
 
-#### LiquidityPool.sol ( sloc each)
+-- Transfer Config
+ - transferOverhead: Pre estimated gas used in transfer transaction that can't be dynamically estimated on contract.
+ - supportedToken: Boolean value that tells if this token is supported or not
+ - equilibriumFee: Percentage transfer fee to be used when pool is in equilibrium position
+ - maxFee: Percentage transfer fee when cross chain transfer use up all the liquidity present in the pool
+ - TokenInfo
+ 	- min: Min amount of tokens that can be transferred from the pool in single transaction.
+ 	- max: Max amount of tokens that can be transferred from the pool in single transaction.
 
-#### LiquidityProviders.sol ( sloc each)
 
+-- Deposit Config
+ - min: Min amount of tokens that can be deposited in the pool in single transaction.
+ - max: Max amount of tokens that can be deposited in the pool in single transaction.
+
+ External contracts called: None
+ 
+ Libraries used: None
+ 
+#### LiquidityPool.sol (351 sloc each)
+Contract that holds all the liquidity for all supported tokens. This contract provide methods to deposit funds in the pool on source chain and transfer funds from the pool on destination chain.
+ - depositErc20: Method to deposit supported ERC20 tokens
+ - depositNative: Method to deposit supported native token of current network. Eg. ETH on Ethereum, MATIC on Polygon
+ - sendFundsToUser: Method to be called by Executors to transfer funds from the pool on destination chain to the user. It handles both Native and ERC20 tokens.
+
+External contracts called:
+  - ExecutorManager.sol
+  - LiquidityProviders.sol
+  - TokenManager.sol
+  - All supported ERC20 tokens.
+
+Libraries used: None
+ 
+#### LiquidityProviders.sol (304 sloc each)
+Contract that provides methods to Liquidity Providers to add/remove/increase liquidity and claim rewards.
+
+ - addTokenLiquidity: Method to add ERC20 token liquidity
+ - addNativeLiquidity: Method to add Native token liquidity
+ - increaseTokenLiquidity: Method to increase the ERC20 liquidity in given position denoted by NFT ID
+ - increaseNativeLiquidity: Method to increase the Native token liquidity in given position denoted by NFT ID
+ - removeLiquidity: Method to remove liquidty from given position.
+ - claimFee: Method to claim the accumulated fee for given position.
+
+External contracts called
+  - TokenManager.sol
+  - LiquidityPool.sol
+  - WhitelistPeriodManager.sol
+  - LPToken.sol
+  - All supported ERC20 tokens.
+    
+ Libraries used: None
+ 
 #### WhitelistPeriodManager.sol (240 sloc each)
     This contract enforces limits on the total and per wallet supplied liquidity for a given token.
     The contract exposes the following functions:
