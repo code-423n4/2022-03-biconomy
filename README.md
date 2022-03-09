@@ -61,6 +61,13 @@ This repo will be made public before the start of the contest. (C4 delete this l
 Test
 [ ⭐️ SPONSORS ADD INFO HERE ]
 
+Hyphen is cross chain token trasnfer bridge that works by maintaing liquidity pools on each supported chains. In order to do a cross chain transfer, user deposit his funds in liquidity pool on source chain and then off chain hyphen nodes (executors) listen to this deposit event and trigger a transfer transaction on destination chain where funds are transfered from the pool to user receiving address after deducting a transfer fee. This transfer is dynamic in nature and is decided by a bonding curve formulae that depends on total liquidity provided by the LPs and the current available liquidity in the pool.
+If user is trying to take funds out from a pool where available liquidtiy is less than supplied liquidity then transfer fee will be high and vice versa. 
+When available liquidtiy = supplied liquidity, then transfer fee is equal to equilibrium fee configured in the pool (usually its 0.1%)
+
+One interesting thing to observe here is that these pools are self rebalancing in the way that once pools gets imbalanced by one sided transfer, protocol starts creating incentives for the users to balance our the pool by doing the cross chain transfer in opposite direction of the demand. This incentive comes from the high fee charged from the user when they are trying to take funds from a pool where available liquidtiy is less than supplied liquidity.
+
+More detailed information can be found <a href="https://biconomy.notion.site/Self-Balancing-Cross-Chain-Liquidity-Pools-c19a725673964d5aaec6b16e5c7ce9a5" target="_blank">here</a>
 
 | Glossary| |
 |-------------------------------|------------------------------------------------------|
@@ -174,21 +181,19 @@ External contracts called
 
 
 ## Additional protocol information
-#### Dynamic Fee
-
-#### Profit and loss
-
 #### User interaction
-User interaction start in either the deposit or withdraw handler. A user is treated differently depending on the size of the user and the type of interaction the user is doing, user interactions can be broken down in the following groups:
+User interaction starts on source chain when user deposit his funds in liquidity pool on the source chain. Once the transaction is confirmed user interaction is no longer needed and user just needs to wait for transfer transaction done by Executors. 
 
-#### Deposits:		 
+#### Arbitrage Transactions:	
+There may be a scenario when some pools in all supported chains are in deficit state and some pools are in excess state. So when a user deposit funds in deficit state and go to a chain where pool is in excess state, the incentives on source chain can be more than the transfer fee on destination chain. This is the arbitrage opportunity where user gets more funds on destination chain then what he deposited on source chain.
 
-#### Withdrawals:	
-
+These incentives drives users to balance the pool themselves. People can run bots on hyphen pool that constantly look out for this opportunity for balancing the pool and take the incentives for doing so.
 
 ## Potential Protocol concerns
+Make sure the dynamic fee formuale works properly and the incevtives are enough for the protocol to balance the pools withour incurring high transfer fee to users.
 
 ## Areas of concern for Wardens
+Make sure the logic is correct around liquidity fee distribution and dynamic fee calculated. Also make sure the rewards calcualtion in Farming contracts works properly as more LPs stake their LP Token in farming contract to get more rewards.
 
 ## Tests
 A full set of unit tests are provided in the repo. To run these do the following:
