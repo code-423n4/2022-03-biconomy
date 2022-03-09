@@ -94,11 +94,32 @@ All the contracts in this section are to be reviewed. Any contracts not in this 
 
 #### LiquidityProviders.sol ( sloc each)
 
-#### WhitelistPeriodManager.sol ( sloc each)
+#### WhitelistPeriodManager.sol (240 sloc each)
+    This contract enforces limits on the total and per wallet supplied liquidity for a given token.
+    The contract exposes the following functions:
+        a. beforeLiquidityAddition(), beforeLiquidityRemoval(), which are called by the LiquidityProvider contract before liquidity is added or removed.
+        b. beforeLiquidityTransfer() which is called bt the LPToken before positions are transferred.
+    The functions verify if all limits are being respected, and reverts in case a limit is being crossed.
+    External Contracts Called:
+        - LiquidityProviders
+        - TokenManager
 
-#### LPToken.sol ( sloc each)
+#### LPToken.sol (201 sloc each)
+    An ERC721 Token, signifies liquidity provided by an LP for a given token pool.
+    Whenever an LP supplied liquidty for a given token, an NFT is minted to them. Whoever owns the NFT has the rights to
+    claim the liquidity and any associated rewards from the pool.
+    Lines of Code: 201
+    External Contracts Called:
+        - SvgHelpers
+        - Whitelist Period Manager
+        - LiquidityProviders
 
-#### HyphenLiquidityFarming.sol ( sloc each)
+
+#### HyphenLiquidityFarming.sol (373 sloc each)
+    Liquidity Providers can optionally lock their LP Tokens (NFTs) in this contract to earn rewards in BICO Tokens
+    External Contracts Called:
+        - LiquidityProviders
+        - LPToken
 
 
 ## Additional protocol information
