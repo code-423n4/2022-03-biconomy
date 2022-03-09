@@ -114,7 +114,7 @@ External contracts called
 
 #### LPToken.sol (201 sloc each)
     An ERC721 Token, signifies liquidity provided by an LP for a given token pool.
-    Whenever an LP supplied liquidty for a given token, an NFT is minted to them. Whoever owns the NFT has the rights to
+    Whenever an LP supplied liquidity for a given token, an NFT is minted to them. Whoever owns the NFT has the rights to
     claim the liquidity and any associated rewards from the pool.
     External Contracts Called:
         - SvgHelpers
@@ -145,7 +145,7 @@ There may be a scenario when some pools in all supported chains are in deficit s
 These incentives drive users to balance the pool themselves. People can run bots on hyphen pool that constantly look out for this opportunity for balancing the pool and take the incentives for doing so.
 
 ## Potential Protocol concerns
-Make sure the dynamic fee formulae works properly and the incevtives are enough for the protocol to balance the pools withour incurring high transfer fee to users.
+Make sure the dynamic fee formulae works properly and the incentives are enough for the protocol to balance the pools without incurring high transfer fee to users.
 
 ## Areas of concern for Wardens
 Make sure the logic is correct around liquidity fee distribution and dynamic fee calculated. Also make sure the rewards calculation in Farming contracts works properly as more LPs stake their LP Token in farming contract to get more rewards.
