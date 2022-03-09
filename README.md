@@ -1,52 +1,3 @@
-# ✨ So you want to sponsor a contest
-
-This `README.md` contains a set of checklists for our contest collaboration.
-
-Your contest will use two repos:
-
-- **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted.
-
-Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest is over and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
-
----
-
-# Contest setup
-
-## ⭐️ Sponsor: Provide contest details
-
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
-
-- [ ] Name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Add all of the code to this repo that you want reviewed
-- [ ] Create a PR to this repo with the above changes.
-
----
-
-# Contest prep
-
-## ⭐️ Sponsor: Contest prep
-
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 8 hours prior to contest start time.**
-- [ ] Ensure that you have access to the _findings_ repo where issues will be submitted.
-- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
-- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Biconomy Hyphen 2.0 contest details
 
 - \$71,250 USDC main award pot
@@ -57,17 +8,15 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - Starts March 10, 2022 00:00 UTC
 - Ends March 16, 2022 23:59 UTC
 
-This repo will be made public before the start of the contest. (C4 delete this line when made public)
-Test
-[ ⭐️ SPONSORS ADD INFO HERE ]
 
+# Protocol Overview
 Hyphen is cross chain token trasnfer bridge that works by maintaing liquidity pools on each supported chains. In order to do a cross chain transfer, user deposit his funds in liquidity pool on source chain and then off chain hyphen nodes (executors) listen to this deposit event and trigger a transfer transaction on destination chain where funds are transfered from the pool to user receiving address after deducting a transfer fee. This transfer is dynamic in nature and is decided by a bonding curve formulae that depends on total liquidity provided by the LPs and the current available liquidity in the pool.
 If user is trying to take funds out from a pool where available liquidtiy is less than supplied liquidity then transfer fee will be high and vice versa. 
 When available liquidtiy = supplied liquidity, then transfer fee is equal to equilibrium fee configured in the pool (usually its 0.1%)
 
 One interesting thing to observe here is that these pools are self rebalancing in the way that once pools gets imbalanced by one sided transfer, protocol starts creating incentives for the users to balance our the pool by doing the cross chain transfer in opposite direction of the demand. This incentive comes from the high fee charged from the user when they are trying to take funds from a pool where available liquidtiy is less than supplied liquidity.
 
-More detailed information can be found <a href="https://biconomy.notion.site/Self-Balancing-Cross-Chain-Liquidity-Pools-c19a725673964d5aaec6b16e5c7ce9a5" target="_blank">here</a>
+More detailed information can be found here <a href="https://biconomy.notion.site/Self-Balancing-Cross-Chain-Liquidity-Pools-c19a725673964d5aaec6b16e5c7ce9a5" target="_blank">Self-Balancing-Cross-Chain-Liquidity-Pools</a>
 
 | Glossary| |
 |-------------------------------|------------------------------------------------------|
