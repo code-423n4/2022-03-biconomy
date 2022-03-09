@@ -18,6 +18,7 @@ One interesting thing to observe here is that these pools are self rebalancing i
 
 More detailed information can be found here <a href="https://biconomy.notion.site/Self-Balancing-Cross-Chain-Liquidity-Pools-c19a725673964d5aaec6b16e5c7ce9a5" target="_blank">Self-Balancing-Cross-Chain-Liquidity-Pools</a>
 
+You can checkout the Hyphe UI here on test networks <a href="https://hyphen-staging.biconomy.io" target="_blank">https://hyphen-staging.biconomy.io</a>
 | Glossary| |
 |-------------------------------|------------------------------------------------------|
 | Liquidity Pool | Liquidity pool contract where LPs will provider liquidity. Single contract deployed on each supported chain, contains multiple tokens liquidity including native token |
