@@ -181,6 +181,12 @@ External contracts called
 
 
 ## Additional protocol information
+### LP Token
+When liquidity providers provide liquidity they are provided with LP Token which in this case is ERC721 token. Each time you add liquidity in the pool you get a new LP Token that represents your new position. If you want to increase the liquidity in your existing position, you should call increaseLiquidity method in LiquidityProviders.sol instead of addLiquidity methods.
+
+### Farming Contracts
+Farming contracts are also deployed to run liquidity incentive programs where LPs can stake their LP Token in farming contract and earn more rewards. These rewards are given in ERC20 or native token on that chain and are configured to be given per second for certain duration of time. Rewards are distributed on the basis of how much liquidity LPs have provided that is represented by their NFT (LP Token)
+
 #### User interaction
 User interaction starts on source chain when user deposit his funds in liquidity pool on the source chain. Once the transaction is confirmed user interaction is no longer needed and user just needs to wait for transfer transaction done by Executors. 
 
