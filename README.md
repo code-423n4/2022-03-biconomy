@@ -108,7 +108,6 @@ All the contracts in this section are to be reviewed. Any contracts not in this 
     An ERC721 Token, signifies liquidity provided by an LP for a given token pool.
     Whenever an LP supplied liquidty for a given token, an NFT is minted to them. Whoever owns the NFT has the rights to
     claim the liquidity and any associated rewards from the pool.
-    Lines of Code: 201
     External Contracts Called:
         - SvgHelpers
         - Whitelist Period Manager
