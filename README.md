@@ -60,3 +60,85 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 This repo will be made public before the start of the contest. (C4 delete this line when made public)
 Test
 [ ⭐️ SPONSORS ADD INFO HERE ]
+
+
+| Glossary| |
+|-------------------------------|------------------------------------------------------|
+| Liquidity Pool | Liquidity pool contract where LPs will provider liquidity. Single contract deployed on each supported chain, contains multiple tokens liquidity including native token |
+| Executors | Off chain accounts that is run by Biconomy who have access to Liqudity present in Liqudity Pools on each chain |
+| Deposit Transaction | Transaction done by the user on source chain who want to move his funds from source chain to destination chain |
+| Transfer Transaction | Transaction done by the Executors on destination chain where user gets his funds from the Liquidity Pool after deducting transfer fee |
+| Cross Chain Transfer | Deposit Transaction + Transfer Transaction makes one cross chain transfer |
+| LPToken | ERC721 Token that represents share in Liquidity Pool |
+| Supplied Liquidity (SL) | Total liquidity supplied by Liquidity Providers in the pool |
+| Available Liquidity (AL) | Current available liquidity available in the pool for cross chain transfers |
+| Equilibrium State | State of the liquidity pool when supplied liquidity = available liquidity |
+| Deficit State | State of the liquidity pool when supplied liquidity > available liquidity |
+| Excess State | State of the liquidity pool when supplied liquidity < available liquidity |
+| Incentive Pool | Mapping stored in Liquidity Pool that contains incentive amount that is given to user deposit when pool is in deficit state |
+| Equilibrium Fee | Percentage fee deducted from user transfer amount that is distributed to LPs when funds are given from Liquidity Pool |
+| Dynamic Transfer Fee | Equilibrium Fee + Incentive Pool Fee, This is dynamic number calculated based on SL and AL |
+| Gas Fee | Fee deducted from user transfer amount in the token being trasnferred that is equal to gas being used in transfer transaction |
+| Total Transfer Fee | Dynamic Transfer Fee + Gas Fee |
+
+## Protocol overview
+
+## Smart Contracts
+All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest.
+
+#### ExecutorManager.sol ( sloc each)
+
+#### TokenManager.sol ( sloc each)
+
+#### LiquidityPool.sol ( sloc each)
+
+#### LiquidityProviders.sol ( sloc each)
+
+#### WhitelistPeriodManager.sol ( sloc each)
+
+#### LPToken.sol ( sloc each)
+
+#### HyphenLiquidityFarming.sol ( sloc each)
+
+
+## Additional protocol information
+#### Dynamic Fee
+
+#### Profit and loss
+
+#### User interaction
+User interaction start in either the deposit or withdraw handler. A user is treated differently depending on the size of the user and the type of interaction the user is doing, user interactions can be broken down in the following groups:
+
+#### Deposits:		 
+
+#### Withdrawals:	
+
+
+## Potential Protocol concerns
+
+## Areas of concern for Wardens
+
+## Tests
+A full set of unit tests are provided in the repo. To run these do the following:
+## Prepare local enviroment
+
+1. install `nodejs`, refer to [nodejs](https://nodejs.org/en/)
+2. install `yarn`, refer to [yarn](https://classic.yarnpkg.com/en/)
+
+
+## Testnet deployment
+
+[ropsten ETH faucet](https://faucet.ropsten.be/)
+
+ The following mocked contracts are used by the protocol on Ropsten:
+| Mocks                         | Address |
+|-------------------------------|------------------------------------------------------|
+| USDC	                        | [USDC, ''](https://ropsten.etherscan.io/address/), |
+| USDT	                        | [USDT, ''](https://ropsten.etherscan.io/address/), |
+
+
+The following external contracts are being used
+| External                         | Address |
+|-------------------------------|------------------------------------------------------|
+| xxx| xxx |
+
