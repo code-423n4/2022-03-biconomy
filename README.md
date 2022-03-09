@@ -39,8 +39,6 @@ You can check out the Hyphe UI here on test networks <a href="https://hyphen-sta
 | Gas Fee | Fee deducted from user transfer amount in the token being transferred that is equal to gas being used in transfer transaction |
 | Total Transfer Fee | Dynamic Transfer Fee + Gas Fee |
 
-## Protocol overview
-
 ## Smart Contracts
 All the contracts in this section are to be reviewed. Any contracts not in this list are to be ignored for this contest.
 
@@ -92,7 +90,7 @@ Contract that provides methods to Liquidity Providers to add/remove/increase liq
  - addNativeLiquidity: Method to add Native token liquidity
  - increaseTokenLiquidity: Method to increase the ERC20 liquidity in given position denoted by NFT ID
  - increaseNativeLiquidity: Method to increase the Native token liquidity in given position denoted by NFT ID
- - removeLiquidity: Method to remove liquidty from given position.
+ - removeLiquidity: Method to remove liquidity from given position.
  - claimFee: Method to claim the accumulated fee for given position.
 
 External contracts called
@@ -138,19 +136,19 @@ When liquidity providers provide liquidity they are provided with LP Token which
 ### Farming Contracts
 Farming contracts are also deployed to run liquidity incentive programs where LPs can stake their LP Token in farming contract and earn more rewards. These rewards are given in ERC20 or native token on that chain and are configured to be given per second for certain duration of time. Rewards are distributed on the basis of how much liquidity LPs have provided that is represented by their NFT (LP Token)
 
-#### User interaction
+### User interaction
 User interaction starts on source chain when user deposit his funds in liquidity pool on the source chain. Once the transaction is confirmed user interaction is no longer needed and user just needs to wait for transfer transaction done by Executors. 
 
-#### Arbitrage Transactions:	
-There may be a scenario when some pools in all supported chains are in deficit state and some pools are in excess state. So when a user deposit funds in deficit state and go to a chain where pool is in excess state, the incentives on source chain can be more than the transfer fee on destination chain. This is the arbitrage opportunity where user gets more funds on destination chain then what he deposited on source chain.
+### Arbitrage Transactions	
+There may be a scenario when some pools in all supported chains are in deficit state and some pools are in excess state. So when a user deposit funds in deficit state and go to a chain where pool is in excess state, the incentives on source chain can be more than the transfer fee on destination chain. This is the arbitrage opportunity where user gets more funds on destination chain than what he deposited on source chain.
 
-These incentives drives users to balance the pool themselves. People can run bots on hyphen pool that constantly look out for this opportunity for balancing the pool and take the incentives for doing so.
+These incentives drive users to balance the pool themselves. People can run bots on hyphen pool that constantly look out for this opportunity for balancing the pool and take the incentives for doing so.
 
 ## Potential Protocol concerns
-Make sure the dynamic fee formuale works properly and the incevtives are enough for the protocol to balance the pools withour incurring high transfer fee to users.
+Make sure the dynamic fee formulae works properly and the incevtives are enough for the protocol to balance the pools withour incurring high transfer fee to users.
 
 ## Areas of concern for Wardens
-Make sure the logic is correct around liquidity fee distribution and dynamic fee calculated. Also make sure the rewards calcualtion in Farming contracts works properly as more LPs stake their LP Token in farming contract to get more rewards.
+Make sure the logic is correct around liquidity fee distribution and dynamic fee calculated. Also make sure the rewards calculation in Farming contracts works properly as more LPs stake their LP Token in farming contract to get more rewards.
 
 ## Tests
 A full set of unit tests are provided in the repo. To run these do the following:
