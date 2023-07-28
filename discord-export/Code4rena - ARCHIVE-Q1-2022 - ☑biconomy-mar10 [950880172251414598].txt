@@ -1,0 +1,227 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q1-2022 / ☑biconomy-mar10
+==============================================================
+
+[03/08/2022 10:21 PM] itsmetechjay
+👋 Hello and welcome to the contest channel for the $75K USDT **Biconomy Hyphen 2.0** contest!
+
+📆 Contest opens March 10, 2022, at 0:00 UTC and runs through March 16, 2022 at 23:59 UTC (7 days).
+
+Please give a warm welcome to the Biconomy team, particularly @sauraav, who will be available for questions either here in the channel or via DM. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+{Reactions}
+🚀 (11) hearteyesrobot (2) 🔥 (3) 
+
+[03/10/2022 12:24 AM] pedroais
+What's the advantage for the end user using cross-chain liquidity pools vs a bridge that just locks tokens ?
+
+
+[03/10/2022 12:42 AM] hickuphh3
+Get rewarded from dynamic transfer fees I suppose
+
+
+[03/10/2022 12:52 AM] pedroais
+Yes when the pool is in deficit state
+
+
+[03/10/2022 12:52 AM] pedroais
+But what about equilibrium state?
+
+
+[03/10/2022 12:54 AM] pedroais
+If everything works properly the pool should be in equilibrium most of the time right ?
+
+
+[03/10/2022 12:54 AM] pedroais
+Then why would I use it vs a regular bridge ?
+
+
+[03/10/2022 6:50 AM] sachintomar
+Pool won't be in equilibrium state most of the time but will try to be in equilibrium state... So will oscillate between deficit and excess state.. 
+And also hyphen doesn't mint new wrapped asset and just transfer the existing assets to user from the pool... another advantage of using Hyphen is speed of transfers.. it's quite fast compared to other bridges... And fee is here is dynamic unlike other bridges..
+
+{Reactions}
+👍 
+
+[03/10/2022 9:35 AM] Ahmed Al-Balaghi#8248
+Mainly regular bridge will be slower than cross chain liquidity pools
+
+
+[03/10/2022 12:16 PM] pedroais
+Thank you
+
+
+[03/12/2022 8:32 AM] cmichel
+I will assume executors are trusted as they have full control over the funds with the `sendFundsToUser` function
+
+
+[03/12/2022 3:52 PM] thro77le
+What is the advantage of using NFT as a liquidity asset?
+
+
+[03/14/2022 9:30 AM] __acidichydrogen__
+Yup, in this current mode lwe haven't decentralised executors, you'll also notice that there are no incentives for the executors either
+
+
+[03/14/2022 9:32 AM] __acidichydrogen__
+For one it makes accounting a lot easier and cam store a lot more information. Instead of just giving ERC20 tokens we give users an NFT which could contain arbitrary metadata, while still allowing holders to transfer it.
+In our case, we use it to track pending and unclaimed rewards since the user first claimed their NFT, and also to store how much the user originally provided as Liquidity
+
+{Reactions}
+👍🏼 
+
+[03/14/2022 10:37 AM] windowhan001
+how do i burn nft?
+
+
+[03/14/2022 12:00 PM] windowhan001
+When I analyzed the code, I guess nft could not be burned.
+
+
+[03/14/2022 12:01 PM] windowhan001
+Is there no need for nft  burn function?
+
+
+[03/14/2022 3:17 PM] thro77le
+How are the executors notified to take action? Based on event emissions ?
+
+
+[03/14/2022 3:29 PM] __acidichydrogen__
+to claim your liquidity back you just call the removeLiquidityFunction, otherwise there is no function to burn a particular NFT
+
+
+[03/14/2022 3:29 PM] __acidichydrogen__
+Yup, we have watch towers (event listeners) that listen for events emitted on each chain
+
+
+[03/15/2022 7:01 AM] dravee
+See comments below 😂 . I love "the Unburnt" one
+```jsx
+File: LiquidityFarming.sol
+177:     /// @param _to Receiver of the tokens, first of his name, rightful heir to the lost tokens,
+178:     /// reightful owner of the extra tokens, and ether, protector of mistaken transfers, mother of token reclaimers,
+179:     /// the Khaleesi of the Great Token Sea, the Unburnt, the Breaker of blockchains.
+180:     function reclaimTokens(
+```
+
+{Reactions}
+🐉 (4) nice (5) 😄 (4) 
+
+[03/15/2022 2:58 PM] kenzoagada
+🙂 nice one guys
+
+
+[03/15/2022 4:21 PM] pedroais
+What's the purpose of having total and per wallet limits to liquidity ?
+
+
+[03/15/2022 5:13 PM] __acidichydrogen__
+we forked the Sushiswap Masterchef V2 contract here, props to the original creator!
+
+
+[03/15/2022 5:14 PM] __acidichydrogen__
+Initially we'll have a community liquidity funding period, the caps just ensure that more people get the opportunity to add liquidity.
+
+
+[03/15/2022 5:15 PM] pedroais
+But why limit the total ? Why just not let everyone add all the liquidity they want ?
+
+
+[03/15/2022 5:15 PM] pedroais
+And can't people just add liquidity from different wallets ?
+
+
+[03/15/2022 5:17 PM] __acidichydrogen__
+It's to maintain a decent apy for LPs. If the added liquidity is too high, it dilutes the apy for everyone
+
+
+[03/15/2022 5:18 PM] __acidichydrogen__
+yup, they can. as you mentioned if people really want to add more liquidity we can't really do much about it, it's more of a soft deterrent
+
+
+[03/15/2022 5:19 PM] pedroais
+Ok
+
+
+[03/15/2022 5:19 PM] pedroais
+Thank you
+
+
+[03/16/2022 12:06 AM] acegawd
+Which one of the devs can I DM?
+
+
+[03/16/2022 1:22 PM] __acidichydrogen__
+feel free to dm me
+
+
+[03/16/2022 5:30 PM] pedroais
+I've sent you a friend request
+
+
+[03/16/2022 6:31 PM] thank_you_
+If we have low-impact/QA bugs, would biconomy like for the low-impact/QA bugs to be placed into one single report?
+
+
+[03/16/2022 6:46 PM] thank_you_
+Nvm, the answer is yes 🙂
+
+
+[03/16/2022 8:55 PM] Ahmed Al-Balaghi#8248
+Thanks guys. Loving the questions and comments
+
+
+[03/16/2022 8:56 PM] Ahmed Al-Balaghi#8248
+Our design is about having a healthy cap to tvl. No point having hundreds of millions of dollars in tvl if it’s not being used.
+
+
+[03/16/2022 8:56 PM] Ahmed Al-Balaghi#8248
+And allows those LPs to get healthy APYs without being diluted as Ankur mentioned
+
+
+[03/17/2022 12:02 AM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Biconomy Hyphen 2.0** contest is now closed! Huge thanks to everyone who participated🔍, whether you submitted a finding or not.
+
+What's next: the Biconomy team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on 📢#📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+
+[04/22/2022 5:44 PM] d4r.k
+Any updates on awarding?
+
+
+[04/22/2022 5:45 PM] nine_k
+thanks for your patience on it, finally got it through the multisig, should be coming out in the next few days
+
+{Reactions}
+👍 (2) 
+
+[05/15/2022 9:57 AM] PeakSmile#7305
+Hi, any news about the results?
+
+{Reactions}
+✅ (3) 👍 (3) C4Keycap (4) 💵 🍉 
+
+[05/16/2022 1:48 PM] itsmetechjay
+This one is still in judging but hoping to wrap it up in the next few days.
+
+{Reactions}
+🥲 (2) 
+
+[05/22/2022 9:46 AM] oridabush
+Any updates on this one?
+
+
+[05/25/2022 2:08 AM] liveactionllamac4
+Hi there! The sponsor is reviewing the judge's decisions this week. If no further discussion is needed between the judge and sponsor after that, then hopefully this one will be finishing up soon. 🤞
+
+{Reactions}
+🔥 (6) 
+
+==============================================================
+Exported 46 message(s)
+==============================================================
